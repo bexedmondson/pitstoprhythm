@@ -1,5 +1,5 @@
 ﻿[System.Serializable]
-public class Note
+public class NoteData
 {
     public enum NoteType
     {

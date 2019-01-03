@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Song")]
-public class Song : ScriptableObject 
+public class SongData : ScriptableObject 
 {   
 	public string songName;
 
     [SerializeField]
-	public List<Note> notes;
+	public List<NoteData> notes;
 }

@@ -19,8 +19,7 @@ public class UIManager : MonoBehaviour
 	void Start () 
 	{
 		m_downArrow.gameObject.SetActive(true);
-	}
-
+	}   
     
 	void SwipeDownDone()
 	{

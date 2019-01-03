@@ -27,9 +27,18 @@ public class Game : MonoBehaviour
 
     public UIManager m_uiManager;
 
-    public Song m_song;
+	public SongData m_songData;
+    
+	private Queue<NoteData> unplayedNotes;
 
-    private float m_timeSinceStart = 0f;
+	private List<NoteData> playingNotes;
+
+    private float m_secondsSinceSongStart = 0f;
+
+	private bool m_songStarted = false;
+    
+	private const float k_noteIntroLength = 0.5f;
+	private const float k_noteMaxLatenessLength = 0.5f;
 
 	void Start () 
 	{
@@ -38,19 +47,40 @@ public class Game : MonoBehaviour
 
 	void FixedUpdate () 
 	{
-		if (m_timeSinceStart < 10f)
+		if (m_songStarted)
 		{
-			//do stuff
-			m_timeSinceStart += Time.deltaTime;
-		}
-		else
-		{
-			EndGame();
+			//check to see if we need to start playing any notes
+			NoteData nextNote = unplayedNotes.Peek();
+            
+			if (nextNote.time < (m_secondsSinceSongStart + k_noteIntroLength))
+			{
+				nextNote = unplayedNotes.Dequeue();
+				playingNotes.Add(nextNote);
+			}
+
+			//check to see if any playing notes are done
+			foreach (NoteData note in playingNotes)
+			{
+				if (note.time < (m_secondsSinceSongStart - k_noteMaxLatenessLength))
+				{
+					playingNotes.Remove(note);
+                    //late! animate here
+				}
+			}
+
+			m_secondsSinceSongStart += Time.deltaTime;
 		}
 	}
 
 	public void StartSong()
 	{
+		//load song
+		foreach (NoteData noteData in m_songData.notes)
+		{
+			unplayedNotes.Enqueue(noteData);
+		}
+		
+		m_songStarted = true;
 	}
 
 	private void EndGame()
