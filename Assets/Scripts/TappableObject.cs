@@ -5,7 +5,7 @@ using UnityEngine;
 public class TappableObject : MonoBehaviour 
 {
 	[SerializeField]
-	public TapObjectType m_type;
+	public TapObjectType m_tapObjectType;
 
 	public Animator m_animator;
 

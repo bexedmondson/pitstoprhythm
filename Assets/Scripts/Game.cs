@@ -55,7 +55,10 @@ public class Game : MonoBehaviour
 			int numOfNotesPlaying = playingNotes.Count;
 
 			if (numOfNotesToPlay == 0 && numOfNotesPlaying == 0)
-				EndGame();
+			{
+				StartCoroutine("EndSong");
+				m_songStarted = false;
+			}
             
             //check to see if any playing notes are done
             if (playingNotes.Count != 0)
@@ -73,8 +76,7 @@ public class Game : MonoBehaviour
 				foreach (NoteData note in notesToBeRemoved)
 				{
 					playingNotes.Remove(note);
-					Debug.Log("removing note " + note.tapObject.ToString() + " at " + m_secondsSinceSongStart.ToString());
-					//late! animate here
+					//miss! animate here
 				}
             }
 
@@ -87,7 +89,6 @@ public class Game : MonoBehaviour
 				{
 					nextNote = unplayedNotes.Dequeue();
 					playingNotes.Add(nextNote);
-					Debug.Log("adding note " + nextNote.tapObject.ToString() + " at " + m_secondsSinceSongStart.ToString());
 
 					m_carManager.AnimateForNote(nextNote);
 				}
@@ -106,6 +107,14 @@ public class Game : MonoBehaviour
 		}
 		
 		m_songStarted = true;
+
+		m_carManager.CarEnter();
+	}
+
+	IEnumerator EndSong()
+	{
+		yield return new WaitForSeconds(3);
+		EndGame();
 	}
 
 	private void EndGame()

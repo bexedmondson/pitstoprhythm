@@ -8,12 +8,7 @@ public class CarManager : MonoBehaviour
 
 	public List<TappableObject> tappableObjects;
 
-	private void Awake()
-    {
-        EventManager.StartListening(EventManager.SwipeDown, CarEnter);
-    }
-
-	void CarEnter()
+	public void CarEnter()
 	{
 		m_carAnimator.SetTrigger("Enter");
 	}
@@ -22,7 +17,7 @@ public class CarManager : MonoBehaviour
 	{
 		for (int i = 0; i < tappableObjects.Count; i++)
 		{
-			if (note.tapObject == tappableObjects[i].m_type)
+			if (note.tapObject == tappableObjects[i].m_tapObjectType)
 				tappableObjects[i].m_animator.SetTrigger("LeadUp");
 		}
 	}

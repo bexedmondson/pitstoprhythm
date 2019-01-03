@@ -480,7 +480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdb0b31fcc41b4933a5a7ecf807efa0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 2
+  m_tapObjectType: 2
   m_animator: {fileID: 0}
 --- !u!95 &220967084
 Animator:
@@ -664,7 +664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdb0b31fcc41b4933a5a7ecf807efa0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 3
+  m_tapObjectType: 3
   m_animator: {fileID: 0}
 --- !u!95 &223762522
 Animator:
@@ -992,7 +992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdb0b31fcc41b4933a5a7ecf807efa0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 0
+  m_tapObjectType: 0
   m_animator: {fileID: 0}
 --- !u!95 &861537809
 Animator:
@@ -1101,7 +1101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdb0b31fcc41b4933a5a7ecf807efa0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 1
+  m_tapObjectType: 1
   m_animator: {fileID: 0}
 --- !u!95 &1026099227
 Animator:
