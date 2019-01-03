@@ -23,7 +23,6 @@ public class Game : MonoBehaviour
 		{
 			//do stuff
 			m_timeSinceStart += Time.deltaTime;
-			Debug.Log(m_timeSinceStart.ToString());
 		}
 		else
 		{
