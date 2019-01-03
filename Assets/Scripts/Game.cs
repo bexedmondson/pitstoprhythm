@@ -3,32 +3,54 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Game : MonoBehaviour 
-{
-	public UIManager m_uiManager;
+{   
+	private static Game game;
+
+	public static Game instance
+    {
+        get
+        {
+            if (!game)
+            {
+				game = FindObjectOfType(typeof(Game)) as Game;
+
+                if (!game)
+                {
+					Debug.LogError("There needs to be one active Game script on a GameObject in your scene.");
+                }
+            }
+
+            return game;
+        }
+    }
 
 
-	public float m_audioLength = 10f;
+    public UIManager m_uiManager;
 
-	private float m_timeSinceStart = 0f;
+    public Song m_song;
 
+    private float m_timeSinceStart = 0f;
 
 	void Start () 
 	{
-		
+		m_uiManager.StartCoroutine("PlayCountdown");
 	}
 
 	void FixedUpdate () 
-	{      
-		if (m_timeSinceStart < m_audioLength)
+	{
+		if (m_timeSinceStart < 10f)
 		{
 			//do stuff
 			m_timeSinceStart += Time.deltaTime;
-			Debug.Log(m_timeSinceStart.ToString());
 		}
 		else
 		{
 			EndGame();
 		}
+	}
+
+	public void StartSong()
+	{
 	}
 
 	private void EndGame()
