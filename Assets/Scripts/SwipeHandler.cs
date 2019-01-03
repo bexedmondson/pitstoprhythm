@@ -18,14 +18,15 @@ public class SwipeHandler : MonoBehaviour
 	private bool eventSent = false;
 	private Vector2 lastPosition;
 
+	private const float k_swipeSensitivity = 10f;
+
 	void Update()
 	{
 		if (Input.touchCount == 0)
 			return;
 
-		if (Input.GetTouch(0).deltaPosition.sqrMagnitude != 0)
-		{         
-			Debug.Log("A TOUCH");
+		if (Input.GetTouch(0).deltaPosition.sqrMagnitude > k_swipeSensitivity)
+		{
 			if (swiping == false)
 			{
 				swiping = true;
