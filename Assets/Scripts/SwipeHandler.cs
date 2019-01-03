@@ -22,7 +22,8 @@ public class SwipeHandler : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.touchCount == 0)
+		//commenting this out while i sort wheel taps
+		/*if (Input.touchCount == 0)
 			return;
 
 		if (Input.GetTouch(0).deltaPosition.sqrMagnitude > k_swipeSensitivity)
@@ -62,7 +63,7 @@ public class SwipeHandler : MonoBehaviour
 		{
 			swiping = false;
 			eventSent = false;
-		}
+		}*/
 	}
 
 	private void Swipe(SwipeDirection direction)
