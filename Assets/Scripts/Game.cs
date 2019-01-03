@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Game : MonoBehaviour 
 {
+	public UIManager m_uiManager;
+
+
 	public float m_audioLength = 10f;
 
 	private float m_timeSinceStart = 0f;
