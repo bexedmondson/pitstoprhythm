@@ -32,6 +32,7 @@ public class Game : MonoBehaviour
 
 	public SongData m_songData;
 
+	//these windows are cumulative - the total max time you can be late on a note is the perfect window time + the normal window time
 	public float m_earlyWindow;
 
     public float m_perfectEarlyWindow;
@@ -43,13 +44,12 @@ public class Game : MonoBehaviour
 	private Queue<NoteData> m_unplayedNotes = new Queue<NoteData> { };
 
 	private List<NoteData> m_playingNotes = new List<NoteData> { };
-
+    
     private float m_secondsSinceSongStart = 0f;
 
 	private bool m_songStarted = false;
     
 	private const float k_noteIntroLength = 0.5f;
-	private const float k_noteMaxLatenessLength = 0.5f;
 
 	private void Awake()
 	{
@@ -81,7 +81,7 @@ public class Game : MonoBehaviour
 
                 foreach (NoteData note in m_playingNotes)
                 {
-                    if (note.time < (m_secondsSinceSongStart - k_noteMaxLatenessLength))
+					if (note.time < (m_secondsSinceSongStart - (m_perfectLateWindow + m_lateWindow)))
                     {
 						notesToBeRemoved.Add(note);
                     }
@@ -142,7 +142,7 @@ public class Game : MonoBehaviour
 			m_carManager.LateAnimForNote(note);
 			m_playingNotes.Remove(note);
 		}
-		else if (m_secondsSinceSongStart > note.time && m_secondsSinceSongStart <= note.time + m_lateWindow)
+		else if (m_secondsSinceSongStart < note.time && m_secondsSinceSongStart >= note.time - m_lateWindow)
 		{
 			m_carManager.EarlyAnimForNote(note);
 			m_playingNotes.Remove(note);
