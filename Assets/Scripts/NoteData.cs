@@ -3,7 +3,9 @@ public class NoteData
 {
     public enum NoteType
     {
+		DragIn,
         Tap,
+        DragOut,
     }
 
     public TapObjectType tapObject;
