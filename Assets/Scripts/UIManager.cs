@@ -5,25 +5,8 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour 
 {
-	public Image m_downArrow;
-
 	public Image m_countdownBG;
 	public Text m_countdownText;
-
-	private void Awake()
-	{
-		EventManager.StartListening(EventManager.SwipeDown, SwipeDownDone);
-	}
-
-	void Start () 
-	{
-		m_downArrow.gameObject.SetActive(true);
-	}   
-    
-	void SwipeDownDone()
-	{
-		m_downArrow.gameObject.SetActive(false);
-	}
 
 	public IEnumerator PlayCountdown()
 	{
