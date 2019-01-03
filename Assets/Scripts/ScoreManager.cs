@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	public int perfects;
+	public int earlies;
+	public int lates;
+	public int misses;
+
+	public int GetPercentageScore()
+	{
+		float scoreTotal = perfects + (earlies / 2) + (lates / 2);
+		float totalNotes = Game.instance.m_songData.notes.Count;
+
+		float score = scoreTotal / totalNotes * 100;
+
+		int roundedScore = (int)score;
+
+		return roundedScore;
 	}
 }

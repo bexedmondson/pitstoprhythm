@@ -93,6 +93,7 @@ public class Game : MonoBehaviour
 				{
 					m_playingNotes.Remove(note);
 					m_carManager.MissAnimForNote(note);
+					m_scoreManager.misses++;
 				}
             }
 
@@ -138,26 +139,31 @@ public class Game : MonoBehaviour
 		{
 			m_carManager.PerfectAnimForNote(note);
 			m_playingNotes.Remove(note);
+			m_scoreManager.perfects++;
 		}
 		else if (m_secondsSinceSongStart > note.time && m_secondsSinceSongStart <= note.time + m_lateWindow)
 		{
 			m_carManager.LateAnimForNote(note);
 			m_playingNotes.Remove(note);
+			m_scoreManager.lates++;
 		}
 		else if (m_secondsSinceSongStart < note.time && m_secondsSinceSongStart >= note.time - m_lateWindow)
 		{
 			m_carManager.EarlyAnimForNote(note);
 			m_playingNotes.Remove(note);
+			m_scoreManager.earlies++;
 		}      
 	}
 
 	IEnumerator EndSong()
 	{
-		yield return new WaitForSeconds(3);
+		m_uiManager.ShowScore();
+
+		yield return new WaitForSeconds(5);
 		EndGame();
 	}
 
-	private void EndGame()
+	public void EndGame()
 	{
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
