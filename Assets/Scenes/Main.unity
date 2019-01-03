@@ -120,6 +120,8 @@ GameObject:
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 6
   m_Component:
+  - component: {fileID: 49658435}
+  - component: {fileID: 49658434}
   - component: {fileID: 49658433}
   m_Layer: 0
   m_Name: EventSystem
