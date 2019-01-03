@@ -3,17 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Game : MonoBehaviour 
-{
-	public UIManager m_uiManager;
+{   
+	private static Game game;
 
-	public Song m_song;
+	public static Game instance
+    {
+        get
+        {
+            if (!game)
+            {
+				game = FindObjectOfType(typeof(Game)) as Game;
 
-	private float m_timeSinceStart = 0f;
+                if (!game)
+                {
+					Debug.LogError("There needs to be one active Game script on a GameObject in your scene.");
+                }
+            }
 
+            return game;
+        }
+    }
+
+
+    public UIManager m_uiManager;
+
+    public Song m_song;
+
+    private float m_timeSinceStart = 0f;
 
 	void Start () 
 	{
-		
+		m_uiManager.StartCoroutine("PlayCountdown");
 	}
 
 	void FixedUpdate () 
@@ -27,6 +47,10 @@ public class Game : MonoBehaviour
 		{
 			EndGame();
 		}
+	}
+
+	public void StartSong()
+	{
 	}
 
 	private void EndGame()

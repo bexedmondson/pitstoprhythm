@@ -7,6 +7,9 @@ public class UIManager : MonoBehaviour
 {
 	public Image m_downArrow;
 
+	public Image m_countdownBG;
+	public Text m_countdownText;
+
 	private void Awake()
 	{
 		EventManager.StartListening(EventManager.SwipeDown, SwipeDownDone);
@@ -22,5 +25,21 @@ public class UIManager : MonoBehaviour
 	void SwipeDownDone()
 	{
 		m_downArrow.gameObject.SetActive(false);
+	}
+
+	public IEnumerator PlayCountdown()
+	{
+		m_countdownBG.gameObject.SetActive(true);
+
+		for (int i = 5; i > 0; i--)
+		{
+			m_countdownText.text = i.ToString();
+            
+			yield return new WaitForSeconds(1);
+		}
+
+		m_countdownBG.gameObject.SetActive(false);
+
+		Game.instance.StartSong();
 	}
 }
