@@ -12,21 +12,7 @@ public class TappableObject : MonoBehaviour, IPointerClickHandler
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		switch (m_tapObjectType)
-		{
-            case TapObjectType.WheelBottomLeft:
-                EventManager.TriggerEvent(EventManager.WheelBLTap);
-				break;
-			case TapObjectType.WheelBottomRight:
-                EventManager.TriggerEvent(EventManager.WheelBRTap);
-				break;
-			case TapObjectType.WheelTopLeft:
-                EventManager.TriggerEvent(EventManager.WheelTLTap);
-				break;
-			case TapObjectType.WheelTopRight:
-                EventManager.TriggerEvent(EventManager.WheelTRTap);
-                break;
-		}
+		EventManager.TriggerEvent(EventManager.TappableObjectTap, m_tapObjectType);
 	}
 
 	private void Awake()

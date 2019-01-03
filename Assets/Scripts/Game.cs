@@ -40,9 +40,9 @@ public class Game : MonoBehaviour
 
 	public float m_lateWindow;
 
-	private Queue<NoteData> unplayedNotes = new Queue<NoteData> { };
+	private Queue<NoteData> m_unplayedNotes = new Queue<NoteData> { };
 
-	private List<NoteData> playingNotes = new List<NoteData> { };
+	private List<NoteData> m_playingNotes = new List<NoteData> { };
 
     private float m_secondsSinceSongStart = 0f;
 
@@ -53,10 +53,7 @@ public class Game : MonoBehaviour
 
 	private void Awake()
 	{
-		EventManager.StartListening(EventManager.WheelBLTap, OnWheelBLTap);
-		EventManager.StartListening(EventManager.WheelBRTap, OnWheelBRTap);
-		EventManager.StartListening(EventManager.WheelTLTap, OnWheelTLTap);
-		EventManager.StartListening(EventManager.WheelTRTap, OnWheelTRTap);
+		EventManager.StartListening(EventManager.TappableObjectTap, OnTappableObjectTap);
 	}
 
 	void Start () 
@@ -68,8 +65,8 @@ public class Game : MonoBehaviour
 	{
 		if (m_songStarted)
 		{
-			int numOfNotesToPlay = unplayedNotes.Count;
-			int numOfNotesPlaying = playingNotes.Count;
+			int numOfNotesToPlay = m_unplayedNotes.Count;
+			int numOfNotesPlaying = m_playingNotes.Count;
 
 			if (numOfNotesToPlay == 0 && numOfNotesPlaying == 0)
 			{
@@ -78,11 +75,11 @@ public class Game : MonoBehaviour
 			}
             
             //check to see if any playing notes are done
-            if (playingNotes.Count != 0)
+            if (m_playingNotes.Count != 0)
             {
 				List<NoteData> notesToBeRemoved = new List<NoteData> { };
 
-                foreach (NoteData note in playingNotes)
+                foreach (NoteData note in m_playingNotes)
                 {
                     if (note.time < (m_secondsSinceSongStart - k_noteMaxLatenessLength))
                     {
@@ -92,22 +89,22 @@ public class Game : MonoBehaviour
 
 				foreach (NoteData note in notesToBeRemoved)
 				{
-					playingNotes.Remove(note);
-					//miss! animate here
+					m_playingNotes.Remove(note);
+					m_carManager.MissAnimForNote(note);
 				}
             }
 
 			//check to see if we need to start playing any notes
 			if (numOfNotesToPlay != 0)
 			{
-				NoteData nextNote = unplayedNotes.Peek();
+				NoteData nextNote = m_unplayedNotes.Peek();
 
 				if (nextNote.time <= (m_secondsSinceSongStart + k_noteIntroLength))
 				{
-					nextNote = unplayedNotes.Dequeue();
-					playingNotes.Add(nextNote);
+					nextNote = m_unplayedNotes.Dequeue();
+					m_playingNotes.Add(nextNote);
 
-					m_carManager.AnimateForNote(nextNote);
+					m_carManager.LeadupAnimForNote(nextNote);
 				}
 			}
 
@@ -120,36 +117,37 @@ public class Game : MonoBehaviour
 		//load song
 		foreach (NoteData noteData in m_songData.notes)
 		{
-			unplayedNotes.Enqueue(noteData);
+			m_unplayedNotes.Enqueue(noteData);
 		}
 		
 		m_songStarted = true;
 
 		m_carManager.CarEnter();
 	}
-    
-    //this code duplication is gross but it's a game jam so i'm leaving it for now!
-	private void OnWheelBLTap()
-    {
-		NoteData note = playingNotes.FirstOrDefault(x => x.tapObject == TapObjectType.WheelBottomLeft);
+       
+	private void OnTappableObjectTap(TapObjectType tapObjectType)
+    {      
+		NoteData note = m_playingNotes.FirstOrDefault(x => x.tapObject == tapObjectType);
 
 		if (note == null)
 			return;
-        
 
+		if (m_secondsSinceSongStart <= note.time + m_perfectLateWindow && m_secondsSinceSongStart >= note.time - m_perfectEarlyWindow)
+		{
+			m_carManager.PerfectAnimForNote(note);
+			m_playingNotes.Remove(note);
+		}
+		else if (m_secondsSinceSongStart > note.time && m_secondsSinceSongStart <= note.time + m_lateWindow)
+		{
+			m_carManager.LateAnimForNote(note);
+			m_playingNotes.Remove(note);
+		}
+		else if (m_secondsSinceSongStart > note.time && m_secondsSinceSongStart <= note.time + m_lateWindow)
+		{
+			m_carManager.EarlyAnimForNote(note);
+			m_playingNotes.Remove(note);
+		}      
 	}
-
-	private void OnWheelBRTap()
-    {
-    }
-
-	private void OnWheelTLTap()
-    {
-    }
-
-	private void OnWheelTRTap()
-    {
-    }
 
 	IEnumerator EndSong()
 	{

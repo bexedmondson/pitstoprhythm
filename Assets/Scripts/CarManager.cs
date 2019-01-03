@@ -13,12 +13,40 @@ public class CarManager : MonoBehaviour
 		m_carAnimator.SetTrigger("Enter");
 	}
 
-	public void AnimateForNote(NoteData note)
+	public void LeadupAnimForNote(NoteData note)
 	{
-		for (int i = 0; i < tappableObjects.Count; i++)
-		{
-			if (note.tapObject == tappableObjects[i].m_tapObjectType)
-				tappableObjects[i].m_animator.SetTrigger("LeadUp");
-		}
+		GetObjectForNoteObjectType(note.tapObject).m_animator.SetTrigger("LeadUp");
+	}
+
+	public void PerfectAnimForNote(NoteData note)
+	{
+		GetObjectForNoteObjectType(note.tapObject).m_animator.SetTrigger("Perfect");
+	}
+
+	public void EarlyAnimForNote(NoteData note)
+    {
+        GetObjectForNoteObjectType(note.tapObject).m_animator.SetTrigger("Early");
+    }
+
+	public void LateAnimForNote(NoteData note)
+    {
+        GetObjectForNoteObjectType(note.tapObject).m_animator.SetTrigger("Late");
+    }
+
+	public void MissAnimForNote(NoteData note)
+    {
+        GetObjectForNoteObjectType(note.tapObject).m_animator.SetTrigger("Miss");
+    }
+
+	private TappableObject GetObjectForNoteObjectType(TapObjectType tapObjectType)
+	{
+        for (int i = 0; i < tappableObjects.Count; i++)
+        {
+            if (tapObjectType == tappableObjects[i].m_tapObjectType)
+            	return tappableObjects[i];
+        }
+
+		Debug.LogError("Couldn't find an object in the scene with type " + tapObjectType.ToString() + "!!!");
+		return null;
 	}
 }

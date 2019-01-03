@@ -66,11 +66,11 @@ public class SwipeHandler : MonoBehaviour
 		}*/
 	}
 
-	private void Swipe(SwipeDirection direction)
+	/*private void Swipe(SwipeDirection direction)
 	{
 		if (direction == SwipeDirection.Up)
 			EventManager.TriggerEvent(EventManager.SwipeUp);
 		else if (direction == SwipeDirection.Down)
 			EventManager.TriggerEvent(EventManager.SwipeDown);
-	}
+	}*/
 }
