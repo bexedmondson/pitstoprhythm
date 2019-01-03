@@ -1387,7 +1387,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca531e97204a749ea826631f602cf516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_downArrow: {fileID: 0}
   m_countdownBG: {fileID: 2138603408}
   m_countdownText: {fileID: 222559070}
 --- !u!114 &1939844174
@@ -1530,6 +1529,10 @@ MonoBehaviour:
   m_uiManager: {fileID: 1939844173}
   m_carManager: {fileID: 548656004}
   m_songData: {fileID: 11400000, guid: 7ff100a2871f646fb99c5a9fa4a3c4be, type: 2}
+  m_earlyWindow: 0.2
+  m_perfectEarlyWindow: 0.1
+  m_perfectLateWindow: 0.1
+  m_lateWindow: 0.2
 --- !u!4 &2102054017
 Transform:
   m_ObjectHideFlags: 0

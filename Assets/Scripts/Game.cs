@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Game : MonoBehaviour 
@@ -31,6 +32,14 @@ public class Game : MonoBehaviour
 
 	public SongData m_songData;
 
+	public float m_earlyWindow;
+
+    public float m_perfectEarlyWindow;
+
+	public float m_perfectLateWindow;
+
+	public float m_lateWindow;
+
 	private Queue<NoteData> unplayedNotes = new Queue<NoteData> { };
 
 	private List<NoteData> playingNotes = new List<NoteData> { };
@@ -41,6 +50,14 @@ public class Game : MonoBehaviour
     
 	private const float k_noteIntroLength = 0.5f;
 	private const float k_noteMaxLatenessLength = 0.5f;
+
+	private void Awake()
+	{
+		EventManager.StartListening(EventManager.WheelBLTap, OnWheelBLTap);
+		EventManager.StartListening(EventManager.WheelBRTap, OnWheelBRTap);
+		EventManager.StartListening(EventManager.WheelTLTap, OnWheelTLTap);
+		EventManager.StartListening(EventManager.WheelTRTap, OnWheelTRTap);
+	}
 
 	void Start () 
 	{
@@ -110,6 +127,29 @@ public class Game : MonoBehaviour
 
 		m_carManager.CarEnter();
 	}
+    
+    //this code duplication is gross but it's a game jam so i'm leaving it for now!
+	private void OnWheelBLTap()
+    {
+		NoteData note = playingNotes.FirstOrDefault(x => x.tapObject == TapObjectType.WheelBottomLeft);
+
+		if (note == null)
+			return;
+        
+
+	}
+
+	private void OnWheelBRTap()
+    {
+    }
+
+	private void OnWheelTLTap()
+    {
+    }
+
+	private void OnWheelTRTap()
+    {
+    }
 
 	IEnumerator EndSong()
 	{
