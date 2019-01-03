@@ -250,6 +250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 220967081}
   - component: {fileID: 220967082}
+  - component: {fileID: 220967083}
   m_Layer: 0
   m_Name: wheel (2)
   m_TagString: Untagged
@@ -316,6 +317,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &220967083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 220967080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdb0b31fcc41b4933a5a7ecf807efa0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
 --- !u!1 &223762518
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,6 +338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 223762519}
   - component: {fileID: 223762520}
+  - component: {fileID: 223762521}
   m_Layer: 0
   m_Name: wheel (3)
   m_TagString: Untagged
@@ -391,6 +405,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &223762521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 223762518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdb0b31fcc41b4933a5a7ecf807efa0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,6 +536,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_carAnimator: {fileID: 2003406782}
+  tappableObjects:
+  - {fileID: 861537808}
+  - {fileID: 1026099226}
+  - {fileID: 220967083}
+  - {fileID: 223762521}
 --- !u!1 &570216365
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,6 +644,7 @@ GameObject:
   m_Component:
   - component: {fileID: 861537806}
   - component: {fileID: 861537807}
+  - component: {fileID: 861537808}
   m_Layer: 0
   m_Name: wheel
   m_TagString: Untagged
@@ -679,6 +711,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &861537808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 861537805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdb0b31fcc41b4933a5a7ecf807efa0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
 --- !u!1 &1026099223
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,6 +732,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1026099224}
   - component: {fileID: 1026099225}
+  - component: {fileID: 1026099226}
   m_Layer: 0
   m_Name: wheel (1)
   m_TagString: Untagged
@@ -754,6 +799,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1026099226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1026099223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdb0b31fcc41b4933a5a7ecf807efa0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
 --- !u!1 &1715063027
 GameObject:
   m_ObjectHideFlags: 0
@@ -1079,7 +1136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_uiManager: {fileID: 1939844173}
-  m_audioLength: 10
+  m_song: {fileID: 11400000, guid: 7ff100a2871f646fb99c5a9fa4a3c4be, type: 2}
 --- !u!4 &2102054017
 Transform:
   m_ObjectHideFlags: 0

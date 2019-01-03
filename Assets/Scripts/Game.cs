@@ -6,8 +6,7 @@ public class Game : MonoBehaviour
 {
 	public UIManager m_uiManager;
 
-
-	public float m_audioLength = 10f;
+	public Song m_song;
 
 	private float m_timeSinceStart = 0f;
 
@@ -18,8 +17,8 @@ public class Game : MonoBehaviour
 	}
 
 	void FixedUpdate () 
-	{      
-		if (m_timeSinceStart < m_audioLength)
+	{
+		if (m_timeSinceStart < 10f)
 		{
 			//do stuff
 			m_timeSinceStart += Time.deltaTime;

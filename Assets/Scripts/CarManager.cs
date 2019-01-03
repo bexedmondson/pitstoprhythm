@@ -6,6 +6,8 @@ public class CarManager : MonoBehaviour
 {
 	public Animator m_carAnimator;
 
+	public List<TappableObject> tappableObjects;
+
 	private void Awake()
     {
         EventManager.StartListening(EventManager.SwipeDown, CarEnter);

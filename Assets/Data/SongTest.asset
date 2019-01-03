@@ -15,7 +15,7 @@ MonoBehaviour:
   notes:
   - tapObject: 0
     type: 0
-    time: 0
-  - tapObject: 0
+    time: 1
+  - tapObject: 1
     type: 0
-    time: 0
+    time: 2
