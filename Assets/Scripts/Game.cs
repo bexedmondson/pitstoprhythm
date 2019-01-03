@@ -30,6 +30,8 @@ public class Game : MonoBehaviour
 
 	public CarManager m_carManager;
 
+	public ScoreManager m_scoreManager;
+
 	public SongData m_songData;
 
 	//these windows are cumulative - the total max time you can be late on a note is the perfect window time + the normal window time

@@ -1956,6 +1956,7 @@ GameObject:
   - component: {fileID: 2102054017}
   - component: {fileID: 2102054016}
   - component: {fileID: 2102054018}
+  - component: {fileID: 2102054019}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -1976,11 +1977,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_uiManager: {fileID: 1939844173}
   m_carManager: {fileID: 548656004}
+  m_scoreManager: {fileID: 0}
   m_songData: {fileID: 11400000, guid: 7ff100a2871f646fb99c5a9fa4a3c4be, type: 2}
-  m_earlyWindow: 4
-  m_perfectEarlyWindow: 1
-  m_perfectLateWindow: 1
-  m_lateWindow: 4
+  m_earlyWindow: 0.5
+  m_perfectEarlyWindow: 0.5
+  m_perfectLateWindow: 0.5
+  m_lateWindow: 0.5
 --- !u!4 &2102054017
 Transform:
   m_ObjectHideFlags: 0
@@ -2003,6 +2005,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a29f7650d2d564602acc473b9f5be511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2102054019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2102054015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d866adaaac8f48b4aa4f618406154f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2138603405
