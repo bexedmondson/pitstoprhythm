@@ -68,14 +68,8 @@ public class SwipeHandler : MonoBehaviour
 	private void Swipe(SwipeDirection direction)
 	{
 		if (direction == SwipeDirection.Up)
-		{
-			Debug.Log("swipeup");
 			EventManager.TriggerEvent(EventManager.SwipeUp);
-		}
 		else if (direction == SwipeDirection.Down)
-		{
-			Debug.Log("swipedown");
 			EventManager.TriggerEvent(EventManager.SwipeDown);
-		}
 	}
 }
