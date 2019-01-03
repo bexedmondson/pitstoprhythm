@@ -7,6 +7,10 @@ public class EventManager : MonoBehaviour
 {
 	public static string SwipeUp = "SwipeUp";
 	public static string SwipeDown = "SwipeDown";
+	public static string WheelTLTap = "WheelTLTap";
+	public static string WheelTRTap = "WheelTRTap";
+	public static string WheelBLTap = "WheelBLTap";
+	public static string WheelBRTap = "WheelBRTap";
 
 
     private Dictionary<string, UnityEvent> eventDictionary;

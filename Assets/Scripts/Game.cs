@@ -27,9 +27,20 @@ public class Game : MonoBehaviour
 
     public UIManager m_uiManager;
 
-    public Song m_song;
+	public CarManager m_carManager;
 
-    private float m_timeSinceStart = 0f;
+	public SongData m_songData;
+
+	private Queue<NoteData> unplayedNotes = new Queue<NoteData> { };
+
+	private List<NoteData> playingNotes = new List<NoteData> { };
+
+    private float m_secondsSinceSongStart = 0f;
+
+	private bool m_songStarted = false;
+    
+	private const float k_noteIntroLength = 0.5f;
+	private const float k_noteMaxLatenessLength = 0.5f;
 
 	void Start () 
 	{
@@ -38,19 +49,63 @@ public class Game : MonoBehaviour
 
 	void FixedUpdate () 
 	{
-		if (m_timeSinceStart < 10f)
+		if (m_songStarted)
 		{
-			//do stuff
-			m_timeSinceStart += Time.deltaTime;
-		}
-		else
-		{
-			EndGame();
+			int numOfNotesToPlay = unplayedNotes.Count;
+			int numOfNotesPlaying = playingNotes.Count;
+
+			if (numOfNotesToPlay == 0 && numOfNotesPlaying == 0)
+				EndGame();
+            
+            //check to see if any playing notes are done
+            if (playingNotes.Count != 0)
+            {
+				List<NoteData> notesToBeRemoved = new List<NoteData> { };
+
+                foreach (NoteData note in playingNotes)
+                {
+                    if (note.time < (m_secondsSinceSongStart - k_noteMaxLatenessLength))
+                    {
+						notesToBeRemoved.Add(note);
+                    }
+                }
+
+				foreach (NoteData note in notesToBeRemoved)
+				{
+					playingNotes.Remove(note);
+					Debug.Log("removing note " + note.tapObject.ToString() + " at " + m_secondsSinceSongStart.ToString());
+					//late! animate here
+				}
+            }
+
+			//check to see if we need to start playing any notes
+			if (numOfNotesToPlay != 0)
+			{
+				NoteData nextNote = unplayedNotes.Peek();
+
+				if (nextNote.time <= (m_secondsSinceSongStart + k_noteIntroLength))
+				{
+					nextNote = unplayedNotes.Dequeue();
+					playingNotes.Add(nextNote);
+					Debug.Log("adding note " + nextNote.tapObject.ToString() + " at " + m_secondsSinceSongStart.ToString());
+
+					m_carManager.AnimateForNote(nextNote);
+				}
+			}
+
+			m_secondsSinceSongStart += Time.deltaTime;
 		}
 	}
 
 	public void StartSong()
 	{
+		//load song
+		foreach (NoteData noteData in m_songData.notes)
+		{
+			unplayedNotes.Enqueue(noteData);
+		}
+		
+		m_songStarted = true;
 	}
 
 	private void EndGame()

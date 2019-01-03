@@ -13,14 +13,12 @@ public class UIManager : MonoBehaviour
 	private void Awake()
 	{
 		EventManager.StartListening(EventManager.SwipeDown, SwipeDownDone);
-		Debug.Log("subscribing!");
 	}
 
 	void Start () 
 	{
 		m_downArrow.gameObject.SetActive(true);
-	}
-
+	}   
     
 	void SwipeDownDone()
 	{
