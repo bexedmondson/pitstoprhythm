@@ -8,14 +8,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11f07b9b7f4bb403499e00a24c55dc26, type: 3}
+  m_Script: {fileID: 11500000, guid: 806663e75add044bf8d22c0c88eeca3c, type: 3}
   m_Name: SongTest
   m_EditorClassIdentifier: 
-  songName: 
+  songName: Test
   notes:
   - tapObject: 0
     type: 0
     time: 1
-  - tapObject: 1
+  - tapObject: 0
     type: 0
-    time: 2
+    time: 2.1
+  - tapObject: 0
+    type: 0
+    time: 2.3
+  - tapObject: 0
+    type: 0
+    time: 3

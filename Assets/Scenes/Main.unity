@@ -1214,7 +1214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_uiManager: {fileID: 1939844173}
-  m_song: {fileID: 11400000, guid: 7ff100a2871f646fb99c5a9fa4a3c4be, type: 2}
+  m_songData: {fileID: 11400000, guid: 7ff100a2871f646fb99c5a9fa4a3c4be, type: 2}
 --- !u!4 &2102054017
 Transform:
   m_ObjectHideFlags: 0

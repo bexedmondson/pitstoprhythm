@@ -28,10 +28,10 @@ public class Game : MonoBehaviour
     public UIManager m_uiManager;
 
 	public SongData m_songData;
-    
-	private Queue<NoteData> unplayedNotes;
 
-	private List<NoteData> playingNotes;
+	private Queue<NoteData> unplayedNotes = new Queue<NoteData> { };
+
+	private List<NoteData> playingNotes = new List<NoteData> { };
 
     private float m_secondsSinceSongStart = 0f;
 
@@ -49,22 +49,42 @@ public class Game : MonoBehaviour
 	{
 		if (m_songStarted)
 		{
-			//check to see if we need to start playing any notes
-			NoteData nextNote = unplayedNotes.Peek();
-            
-			if (nextNote.time < (m_secondsSinceSongStart + k_noteIntroLength))
-			{
-				nextNote = unplayedNotes.Dequeue();
-				playingNotes.Add(nextNote);
-			}
+			int numOfNotesToPlay = unplayedNotes.Count;
+			int numOfNotesPlaying = playingNotes.Count;
 
-			//check to see if any playing notes are done
-			foreach (NoteData note in playingNotes)
-			{
-				if (note.time < (m_secondsSinceSongStart - k_noteMaxLatenessLength))
+			if (numOfNotesToPlay == 0 && numOfNotesPlaying == 0)
+				EndGame();
+            
+            //check to see if any playing notes are done
+            if (playingNotes.Count != 0)
+            {
+				List<NoteData> notesToBeRemoved = new List<NoteData> { };
+
+                foreach (NoteData note in playingNotes)
+                {
+                    if (note.time < (m_secondsSinceSongStart - k_noteMaxLatenessLength))
+                    {
+						notesToBeRemoved.Add(note);
+                    }
+                }
+
+				foreach (NoteData note in notesToBeRemoved)
 				{
 					playingNotes.Remove(note);
-                    //late! animate here
+					//late! animate here
+				}
+            }
+
+			//check to see if we need to start playing any notes
+			if (numOfNotesToPlay != 0)
+			{
+				NoteData nextNote = unplayedNotes.Peek();
+
+				if (nextNote.time < (m_secondsSinceSongStart + k_noteIntroLength))
+				{
+					nextNote = unplayedNotes.Dequeue();
+					playingNotes.Add(nextNote);
+                    //play new note here!
 				}
 			}
 
