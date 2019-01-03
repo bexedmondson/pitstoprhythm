@@ -27,6 +27,8 @@ public class Game : MonoBehaviour
 
     public UIManager m_uiManager;
 
+	public CarManager m_carManager;
+
 	public SongData m_songData;
 
 	private Queue<NoteData> unplayedNotes = new Queue<NoteData> { };
@@ -71,6 +73,7 @@ public class Game : MonoBehaviour
 				foreach (NoteData note in notesToBeRemoved)
 				{
 					playingNotes.Remove(note);
+					Debug.Log("removing note " + note.tapObject.ToString() + " at " + m_secondsSinceSongStart.ToString());
 					//late! animate here
 				}
             }
@@ -80,11 +83,13 @@ public class Game : MonoBehaviour
 			{
 				NoteData nextNote = unplayedNotes.Peek();
 
-				if (nextNote.time < (m_secondsSinceSongStart + k_noteIntroLength))
+				if (nextNote.time <= (m_secondsSinceSongStart + k_noteIntroLength))
 				{
 					nextNote = unplayedNotes.Dequeue();
 					playingNotes.Add(nextNote);
-                    //play new note here!
+					Debug.Log("adding note " + nextNote.tapObject.ToString() + " at " + m_secondsSinceSongStart.ToString());
+
+					m_carManager.AnimateForNote(nextNote);
 				}
 			}
 

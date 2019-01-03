@@ -13,15 +13,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   songName: Test
   notes:
-  - tapObject: 0
+  - tapObject: 1
     type: 0
-    time: 1
-  - tapObject: 0
+    time: 0
+  - tapObject: 2
     type: 0
     time: 2.1
-  - tapObject: 0
+  - tapObject: 4
     type: 0
-    time: 2.3
-  - tapObject: 0
+    time: 2.8
+  - tapObject: 3
     type: 0
     time: 3
