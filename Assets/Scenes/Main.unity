@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465934, g: 0.49642956, b: 0.5748249, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3019,10 +3019,10 @@ MonoBehaviour:
   m_carManager: {fileID: 548656004}
   m_scoreManager: {fileID: 2102054019}
   m_songData: {fileID: 11400000, guid: 7ff100a2871f646fb99c5a9fa4a3c4be, type: 2}
-  m_earlyWindow: 0.5
-  m_perfectEarlyWindow: 0.5
-  m_perfectLateWindow: 0.5
-  m_lateWindow: 0.5
+  m_earlyWindow: 0.25
+  m_perfectEarlyWindow: 0.125
+  m_perfectLateWindow: 0.125
+  m_lateWindow: 0.125
 --- !u!4 &2102054017
 Transform:
   m_ObjectHideFlags: 0
