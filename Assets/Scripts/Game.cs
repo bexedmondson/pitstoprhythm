@@ -135,19 +135,22 @@ public class Game : MonoBehaviour
 		if (note == null)
 			return;
 
+		Debug.Log("tap time is " + m_secondsSinceSongStart.ToString());
+		Debug.Log("note time is " + note.time.ToString());
+
 		if (m_secondsSinceSongStart <= note.time + m_perfectLateWindow && m_secondsSinceSongStart >= note.time - m_perfectEarlyWindow)
 		{
 			m_carManager.PerfectAnimForNote(note);
 			m_playingNotes.Remove(note);
 			m_scoreManager.perfects++;
 		}
-		else if (m_secondsSinceSongStart > note.time && m_secondsSinceSongStart <= note.time + m_lateWindow)
+		else if (m_secondsSinceSongStart > note.time && m_secondsSinceSongStart <= (note.time + m_lateWindow + m_perfectLateWindow))
 		{
 			m_carManager.LateAnimForNote(note);
 			m_playingNotes.Remove(note);
 			m_scoreManager.lates++;
 		}
-		else if (m_secondsSinceSongStart < note.time && m_secondsSinceSongStart >= note.time - m_lateWindow)
+		else if (m_secondsSinceSongStart < note.time && m_secondsSinceSongStart >= (note.time - m_earlyWindow - m_perfectEarlyWindow))
 		{
 			m_carManager.EarlyAnimForNote(note);
 			m_playingNotes.Remove(note);
