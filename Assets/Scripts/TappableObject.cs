@@ -10,6 +10,8 @@ public class TappableObject : MonoBehaviour, IPointerClickHandler
 
 	public Animator m_animator;
 
+	public SpriteRenderer successSprite;
+
 	public void OnPointerClick(PointerEventData eventData)
 	{
 		EventManager.TriggerEvent(EventManager.TappableObjectTap, m_tapObjectType);

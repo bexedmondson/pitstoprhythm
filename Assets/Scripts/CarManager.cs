@@ -14,6 +14,11 @@ public class CarManager : MonoBehaviour
 
 	public AudioClip driveOutSound;
 
+	public Sprite perfectSprite;
+	public Sprite earlySprite;
+	public Sprite lateSprite;
+	public Sprite missSprite;
+
 	private AudioSource audioSource;
 
 	private void Awake()
@@ -45,24 +50,28 @@ public class CarManager : MonoBehaviour
 
 	public void PerfectAnimForNote(NoteData note)
 	{
+		GetObjectForNoteObjectType(note.tapObject).successSprite.sprite = perfectSprite;
 		GetObjectForNoteObjectType(note.tapObject).m_animator.SetTrigger("Perfect");
 		PlayRandomSuccessSound();
 	}
 
 	public void EarlyAnimForNote(NoteData note)
-    {
+	{
+		GetObjectForNoteObjectType(note.tapObject).successSprite.sprite = earlySprite;
         GetObjectForNoteObjectType(note.tapObject).m_animator.SetTrigger("Early");
 		PlayRandomSuccessSound();
     }
 
 	public void LateAnimForNote(NoteData note)
-    {
+	{
+		GetObjectForNoteObjectType(note.tapObject).successSprite.sprite = lateSprite;
         GetObjectForNoteObjectType(note.tapObject).m_animator.SetTrigger("Late");
 		PlayRandomSuccessSound();
     }
 
 	public void MissAnimForNote(NoteData note)
-    {
+	{
+		GetObjectForNoteObjectType(note.tapObject).successSprite.sprite = missSprite;
         GetObjectForNoteObjectType(note.tapObject).m_animator.SetTrigger("Miss");
 		audioSource.PlayOneShot(failWheelEffect);
     }

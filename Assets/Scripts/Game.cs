@@ -171,7 +171,7 @@ public class Game : MonoBehaviour
 	{
 		Start();
 
-		EventManager.TriggerEvent(EventManager.RestartTrack, TapObjectType.Fin);//ignore type, that's just because of the annoying way event handler is set up
+		EventManager.TriggerEvent(EventManager.RestartTrack, TapObjectType.Fin); //ignore type, that's just because of the annoying way event handler is set up
 	}
 
 	public void ExitGame()
