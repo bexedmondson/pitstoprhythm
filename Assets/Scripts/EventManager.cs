@@ -13,6 +13,7 @@ public class EventManager : MonoBehaviour
 	//public static string SwipeUp = "SwipeUp";
 	//public static string SwipeDown = "SwipeDown";
 	public static string TappableObjectTap = "WheelTap";
+	public static string RestartTrack = "RestartTrack";
 
 
 	private Dictionary<string, TapObjectEvent> eventDictionary;

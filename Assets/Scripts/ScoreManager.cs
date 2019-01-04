@@ -20,4 +20,9 @@ public class ScoreManager : MonoBehaviour {
 
 		return roundedScore;
 	}
+
+	public void ClearScore()
+	{
+		perfects = earlies = lates = misses = 0;
+	}
 }

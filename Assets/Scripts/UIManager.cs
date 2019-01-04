@@ -60,9 +60,15 @@ public class UIManager : MonoBehaviour
 		m_scorePopup.SetActive(true);
 	}
 
+	public void OnRetryButton()
+	{
+		m_scorePopup.SetActive(false);
+		Game.instance.RetrySong();
+	}
+
 	public void OnEndGameButton()
 	{
 		m_scorePopup.SetActive(false);
-		Game.instance.EndGame();
+		Game.instance.ExitGame();
 	}
 }

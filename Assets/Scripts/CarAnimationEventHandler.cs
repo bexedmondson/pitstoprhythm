@@ -6,6 +6,6 @@ public class CarAnimationEventHandler : MonoBehaviour
 {   
     public void CarHasExited()
     {
-        Game.instance.StartCoroutine("EndSong");
+		Game.instance.EndSong();
     }
 }

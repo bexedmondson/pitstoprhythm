@@ -21,6 +21,11 @@ public class CarManager : MonoBehaviour
 		audioSource = GetComponent<AudioSource>();
 	}
 
+	public void Reset()
+	{
+		m_carAnimator.SetTrigger("Reset");
+	}
+
 	public void CarEnter()
 	{
 		m_carAnimator.SetTrigger("Enter");

@@ -3,30 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Game : MonoBehaviour 
-{   
+public class Game : MonoBehaviour
+{
 	private static Game game;
 
 	public static Game instance
-    {
-        get
-        {
-            if (!game)
-            {
+	{
+		get
+		{
+			if (!game)
+			{
 				game = FindObjectOfType(typeof(Game)) as Game;
 
-                if (!game)
-                {
+				if (!game)
+				{
 					Debug.LogError("There needs to be one active Game script on a GameObject in your scene.");
-                }
-            }
+				}
+			}
 
-            return game;
-        }
-    }
+			return game;
+		}
+	}
 
 
-    public UIManager m_uiManager;
+	public UIManager m_uiManager;
 
 	public CarManager m_carManager;
 
@@ -37,7 +37,7 @@ public class Game : MonoBehaviour
 	//these windows are cumulative - the total max time you can be late on a note is the perfect window time + the normal window time
 	public float m_earlyWindow;
 
-    public float m_perfectEarlyWindow;
+	public float m_perfectEarlyWindow;
 
 	public float m_perfectLateWindow;
 
@@ -46,11 +46,11 @@ public class Game : MonoBehaviour
 	private Queue<NoteData> m_unplayedNotes = new Queue<NoteData> { };
 
 	private List<NoteData> m_playingNotes = new List<NoteData> { };
-    
-    private float m_secondsSinceSongStart = 0f;
+
+	private float m_secondsSinceSongStart = 0f;
 
 	private bool m_songStarted = false;
-    
+
 	private const float k_noteIntroLength = 0.9f;
 
 	private void Awake()
@@ -58,12 +58,12 @@ public class Game : MonoBehaviour
 		EventManager.StartListening(EventManager.TappableObjectTap, OnTappableObjectTap);
 	}
 
-	void Start () 
+	void Start()
 	{
 		m_uiManager.StartCoroutine("PlayCountdown");
 	}
 
-	void FixedUpdate () 
+	void FixedUpdate()
 	{
 		if (m_songStarted)
 		{
@@ -75,19 +75,19 @@ public class Game : MonoBehaviour
 				m_carManager.CarExit();
 				m_songStarted = false;
 			}
-            
-            //check to see if any playing notes are done
-            if (m_playingNotes.Count != 0)
-            {
+
+			//check to see if any playing notes are done
+			if (m_playingNotes.Count != 0)
+			{
 				List<NoteData> notesToBeRemoved = new List<NoteData> { };
 
-                foreach (NoteData note in m_playingNotes)
-                {
+				foreach (NoteData note in m_playingNotes)
+				{
 					if (note.time < (m_secondsSinceSongStart - (m_perfectLateWindow + m_lateWindow)))
-                    {
+					{
 						notesToBeRemoved.Add(note);
-                    }
-                }
+					}
+				}
 
 				foreach (NoteData note in notesToBeRemoved)
 				{
@@ -95,7 +95,7 @@ public class Game : MonoBehaviour
 					m_carManager.MissAnimForNote(note);
 					m_scoreManager.misses++;
 				}
-            }
+			}
 
 			//check to see if we need to start playing any notes
 			if (numOfNotesToPlay != 0)
@@ -106,7 +106,6 @@ public class Game : MonoBehaviour
 				{
 					nextNote = m_unplayedNotes.Dequeue();
 
-					Debug.Log("triggering anim for " + nextNote.tapObject.ToString() + " at " + m_secondsSinceSongStart.ToString());
 					m_playingNotes.Add(nextNote);
 
 					m_carManager.LeadupAnimForNote(nextNote);
@@ -124,21 +123,18 @@ public class Game : MonoBehaviour
 		{
 			m_unplayedNotes.Enqueue(noteData);
 		}
-		
+
 		m_songStarted = true;
 
 		m_carManager.CarEnter();
 	}
-       
+
 	private void OnTappableObjectTap(TapObjectType tapObjectType)
-    {      
+	{
 		NoteData note = m_playingNotes.FirstOrDefault(x => x.tapObject == tapObjectType);
 
 		if (note == null)
 			return;
-
-		Debug.Log("tap time is " + m_secondsSinceSongStart.ToString());
-		Debug.Log("note time is " + note.time.ToString());
 
 		if (m_secondsSinceSongStart <= note.time + m_perfectLateWindow && m_secondsSinceSongStart >= note.time - m_perfectEarlyWindow)
 		{
@@ -157,19 +153,29 @@ public class Game : MonoBehaviour
 			m_carManager.EarlyAnimForNote(note);
 			m_playingNotes.Remove(note);
 			m_scoreManager.earlies++;
-		}      
+		}
 	}
 
-	IEnumerator EndSong()
+	public void EndSong()
 	{
 		m_uiManager.ShowScore();
 
-		yield return new WaitForSeconds(5);
-		EndGame();
+		m_scoreManager.ClearScore();
+
+		m_carManager.Reset();
+
+		m_secondsSinceSongStart = 0;
 	}
 
-	public void EndGame()
+	public void RetrySong()
 	{
+		Start();
+
+		EventManager.TriggerEvent(EventManager.RestartTrack, TapObjectType.Fin);//ignore type, that's just because of the annoying way event handler is set up
+	}
+
+	public void ExitGame()
+	{      
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
