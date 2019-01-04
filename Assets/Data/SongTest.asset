@@ -25,3 +25,6 @@ MonoBehaviour:
   - tapObject: 0
     type: 0
     time: 3.5
+  - tapObject: 4
+    type: 0
+    time: 4.5
