@@ -41,16 +41,19 @@ public class CarManager : MonoBehaviour
 	public void PerfectAnimForNote(NoteData note)
 	{
 		GetObjectForNoteObjectType(note.tapObject).m_animator.SetTrigger("Perfect");
+		PlayRandomSuccessSound();
 	}
 
 	public void EarlyAnimForNote(NoteData note)
     {
         GetObjectForNoteObjectType(note.tapObject).m_animator.SetTrigger("Early");
+		PlayRandomSuccessSound();
     }
 
 	public void LateAnimForNote(NoteData note)
     {
         GetObjectForNoteObjectType(note.tapObject).m_animator.SetTrigger("Late");
+		PlayRandomSuccessSound();
     }
 
 	public void MissAnimForNote(NoteData note)
