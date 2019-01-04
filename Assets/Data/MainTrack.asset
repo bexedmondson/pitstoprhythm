@@ -40,246 +40,90 @@ MonoBehaviour:
   - tapObject: 4
     type: 0
     time: 7.8
-  - tapObject: 4
-    type: 0
-    time: 8.2
-  - tapObject: 4
+  - tapObject: 3
     type: 0
     time: 8.6
+  - tapObject: 2
+    type: 0
+    time: 9.4
   - tapObject: 4
     type: 0
-    time: 9
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
+    time: 10.2
+  - tapObject: 1
     type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
-    type: 0
-    time: 31
-  - tapObject: 3
+    time: 11
+  - tapObject: 0
     type: 0
-    time: 31
-  - tapObject: 3
+    time: 11.8
+  - tapObject: 4
     type: 0
-    time: 31
+    time: 12.6
   - tapObject: 3
     type: 0
-    time: 31
-  - tapObject: 3
+    time: 13.4
+  - tapObject: 0
     type: 0
-    time: 31
-  - tapObject: 3
+    time: 14.2
+  - tapObject: 2
     type: 0
-    time: 31
-  - tapObject: 3
+    time: 15
+  - tapObject: 1
     type: 0
-    time: 31
-  - tapObject: 3
+    time: 15.8
+  - tapObject: 2
     type: 0
-    time: 31
-  - tapObject: 3
+    time: 16.6
+  - tapObject: 1
     type: 0
-    time: 31
+    time: 17.4
   - tapObject: 3
     type: 0
-    time: 31
-  - tapObject: 3
+    time: 18.2
+  - tapObject: 0
     type: 0
-    time: 31
-  - tapObject: 3
+    time: 19
+  - tapObject: 4
     type: 0
-    time: 31
-  - tapObject: 3
+    time: 19.8
+  - tapObject: 0
     type: 0
-    time: 31
-  - tapObject: 3
+    time: 20.6
+  - tapObject: 4
     type: 0
-    time: 31
-  - tapObject: 3
+    time: 21.4
+  - tapObject: 2
     type: 0
-    time: 31
-  - tapObject: 3
+    time: 22.2
+  - tapObject: 4
     type: 0
-    time: 31
-  - tapObject: 3
+    time: 23
+  - tapObject: 1
     type: 0
-    time: 31
-  - tapObject: 3
+    time: 23.8
+  - tapObject: 4
     type: 0
-    time: 31
+    time: 24.6
   - tapObject: 3
     type: 0
-    time: 31
-  - tapObject: 3
+    time: 25.4
+  - tapObject: 4
     type: 0
-    time: 31
-  - tapObject: 3
+    time: 26.2
+  - tapObject: 0
     type: 0
-    time: 31
-  - tapObject: 3
+    time: 27
+  - tapObject: 1
     type: 0
-    time: 31
-  - tapObject: 3
+    time: 27.8
+  - tapObject: 4
     type: 0
-    time: 31
-  - tapObject: 3
+    time: 28.6
+  - tapObject: 2
     type: 0
-    time: 31
+    time: 29.4
   - tapObject: 3
     type: 0
-    time: 31
+    time: 30.2
   - tapObject: 4
     type: 0
     time: 31
