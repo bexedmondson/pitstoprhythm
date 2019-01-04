@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806663e75add044bf8d22c0c88eeca3c, type: 3}
   m_Name: MainTrack
   m_EditorClassIdentifier: 
-  songName: 
+  songName: MainTrack
   notes:
   - tapObject: 0
     type: 0
