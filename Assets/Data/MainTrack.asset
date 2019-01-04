@@ -15,4 +15,271 @@ MonoBehaviour:
   notes:
   - tapObject: 0
     type: 0
-    time: 0
+    time: 1.4
+  - tapObject: 1
+    type: 0
+    time: 2.2
+  - tapObject: 2
+    type: 0
+    time: 3
+  - tapObject: 3
+    type: 0
+    time: 3.8
+  - tapObject: 0
+    type: 0
+    time: 4.6
+  - tapObject: 1
+    type: 0
+    time: 5.4
+  - tapObject: 2
+    type: 0
+    time: 6.2
+  - tapObject: 3
+    type: 0
+    time: 7
+  - tapObject: 4
+    type: 0
+    time: 7.8
+  - tapObject: 4
+    type: 0
+    time: 8.2
+  - tapObject: 4
+    type: 0
+    time: 8.6
+  - tapObject: 4
+    type: 0
+    time: 9
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 3
+    type: 0
+    time: 31
+  - tapObject: 4
+    type: 0
+    time: 31
