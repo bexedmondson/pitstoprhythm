@@ -3,5 +3,6 @@
     WheelTopLeft,
     WheelTopRight,
     WheelBottomLeft,
-    WheelBottomRight
+    WheelBottomRight,
+    Fin
 }
