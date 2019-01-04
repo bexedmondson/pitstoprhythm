@@ -8,22 +8,29 @@ public class CarManager : MonoBehaviour
 
 	public List<TappableObject> tappableObjects;
     
-	public AudioClip driveIn;
+	public List<AudioClip> successWheelEffects;
 
-	public AudioClip driveOut;
+	public AudioClip failWheelEffect;
+
+	public AudioClip driveOutSound;
+
+	private AudioSource audioSource;
+
+	private void Awake()
+	{
+		audioSource = GetComponent<AudioSource>();
+	}
 
 	public void CarEnter()
 	{
 		m_carAnimator.SetTrigger("Enter");
-
-		//GetComponent<AudioSource>().PlayOneShot(driveIn); //this is now baked into the background music for simplicity
 	}
 
 	public void CarExit()
     {
         m_carAnimator.SetTrigger("Exit");
 
-		GetComponent<AudioSource>().PlayOneShot(driveOut);
+		audioSource.PlayOneShot(driveOutSound);
     }
 
 	public void LeadupAnimForNote(NoteData note)
@@ -49,7 +56,13 @@ public class CarManager : MonoBehaviour
 	public void MissAnimForNote(NoteData note)
     {
         GetObjectForNoteObjectType(note.tapObject).m_animator.SetTrigger("Miss");
+		audioSource.PlayOneShot(failWheelEffect);
     }
+
+	private void PlayRandomSuccessSound()
+	{
+		audioSource.PlayOneShot(successWheelEffects[Random.Range(0, successWheelEffects.Count)]);
+	}
 
 	private TappableObject GetObjectForNoteObjectType(TapObjectType tapObjectType)
 	{
