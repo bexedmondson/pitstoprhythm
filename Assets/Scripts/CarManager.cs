@@ -7,11 +7,24 @@ public class CarManager : MonoBehaviour
 	public Animator m_carAnimator;
 
 	public List<TappableObject> tappableObjects;
+    
+	public AudioClip driveIn;
+
+	public AudioClip driveOut;
 
 	public void CarEnter()
 	{
 		m_carAnimator.SetTrigger("Enter");
+
+		//GetComponent<AudioSource>().PlayOneShot(driveIn); //this is now baked into the background music for simplicity
 	}
+
+	public void CarExit()
+    {
+        m_carAnimator.SetTrigger("Exit");
+
+		GetComponent<AudioSource>().PlayOneShot(driveOut);
+    }
 
 	public void LeadupAnimForNote(NoteData note)
 	{
