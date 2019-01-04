@@ -72,7 +72,7 @@ public class Game : MonoBehaviour
 
 			if (numOfNotesToPlay == 0 && numOfNotesPlaying == 0)
 			{
-				StartCoroutine("EndSong");
+				m_carManager.CarExit();
 				m_songStarted = false;
 			}
             
