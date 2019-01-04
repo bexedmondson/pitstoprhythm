@@ -51,7 +51,7 @@ public class Game : MonoBehaviour
 
 	private bool m_songStarted = false;
     
-	private const float k_noteIntroLength = 0.5f;
+	private const float k_noteIntroLength = 0.9f;
 
 	private void Awake()
 	{
@@ -105,6 +105,8 @@ public class Game : MonoBehaviour
 				if (nextNote.time <= (m_secondsSinceSongStart + k_noteIntroLength))
 				{
 					nextNote = m_unplayedNotes.Dequeue();
+
+					Debug.Log("triggering anim for " + nextNote.tapObject.ToString() + " at " + m_secondsSinceSongStart.ToString());
 					m_playingNotes.Add(nextNote);
 
 					m_carManager.LeadupAnimForNote(nextNote);
