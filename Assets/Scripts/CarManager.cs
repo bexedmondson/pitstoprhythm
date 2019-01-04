@@ -16,7 +16,7 @@ public class CarManager : MonoBehaviour
 	{
 		m_carAnimator.SetTrigger("Enter");
 
-		GetComponent<AudioSource>().PlayOneShot(driveIn);
+		//GetComponent<AudioSource>().PlayOneShot(driveIn); //this is now baked into the background music for simplicity
 	}
 
 	public void CarExit()
