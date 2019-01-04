@@ -2814,48 +2814,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &1910204817
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4868909803600844, guid: 9c7202889ced5407a834acb7ad56198b, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4868909803600844, guid: 9c7202889ced5407a834acb7ad56198b, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4868909803600844, guid: 9c7202889ced5407a834acb7ad56198b, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4868909803600844, guid: 9c7202889ced5407a834acb7ad56198b, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4868909803600844, guid: 9c7202889ced5407a834acb7ad56198b, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4868909803600844, guid: 9c7202889ced5407a834acb7ad56198b, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4868909803600844, guid: 9c7202889ced5407a834acb7ad56198b, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4868909803600844, guid: 9c7202889ced5407a834acb7ad56198b, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9c7202889ced5407a834acb7ad56198b, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &1939844171
 GameObject:
   m_ObjectHideFlags: 0
@@ -3060,7 +3018,7 @@ MonoBehaviour:
   m_uiManager: {fileID: 1939844173}
   m_carManager: {fileID: 548656004}
   m_scoreManager: {fileID: 2102054019}
-  m_songData: {fileID: 11400000, guid: 7ff100a2871f646fb99c5a9fa4a3c4be, type: 2}
+  m_songData: {fileID: 11400000, guid: 60ea3b769128844eb8d41a4e7f8a1f59, type: 2}
   m_earlyWindow: 0.25
   m_perfectEarlyWindow: 0.125
   m_perfectLateWindow: 0.125
